@@ -3,36 +3,52 @@ import { Typography, Grid, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import TweetDecryptor from './TweetDecryptor'
 import AcronymDecryptor from './AcronymDecryptor'
+import { useUrlState } from 'with-url-state'
+import { blue } from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: '40px',
+    paddingTop: 40,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
     [theme.breakpoints.down('md')]: {
-      marginTop: 20
+      paddingTop: 20
     }
   },
   content: {
-    marginTop: '40px',
+    flexGrow: 1,
+    marginTop: '20px',
     padding: 10
+  },
+  mattjennings: {
+    color: blue[800],
+    textDecoration: 'none'
   }
 }))
 
 function Main() {
   const classes = useStyles()
 
-  const [input, setInput] = useState(null)
-  const [inputType, setInputType] = useState(null)
+  const [urlState, setUrlState] = useUrlState({})
+  const [input, setInput] = useState(urlState.text || '')
+
+  const inputType = input.startsWith('https://twitter.com')
+    ? 'tweet'
+    : 'acronym'
 
   return (
     <div className={classes.root}>
       <Typography variant="h4" align="center">
         Elliotte Friedman Decryptor
       </Typography>
+      <Typography variant="subtitle1" align="center">
+        by{' '}
+        <a href="https://mattjennings.io" className={classes.mattjennings}>
+          matt jennings
+        </a>
+      </Typography>
       <Grid className={classes.content} spacing={16} container justify="center">
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4}>
           <TextField
             fullWidth={true}
             variant="outlined"
@@ -40,11 +56,8 @@ function Main() {
             value={input}
             onChange={ev => {
               const { value } = ev.target
-              if (value.startsWith('https://twitter.com')) {
-                setInputType('tweet')
-              } else {
-                setInputType('acronym')
-              }
+
+              setUrlState({ text: value })
 
               setInput(value)
             }}

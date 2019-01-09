@@ -25,7 +25,7 @@ export default function TweetDecryptor({ url }) {
               const textElem = shadowRoot.querySelector('.Tweet-text')
               const text = textElem.innerHTML
               const acronyms = text.match(
-                /\b[A-Z]*[a-z]*[A-Z]s?\d*[A-Z]*[\-\w+]\b/g
+                /\b[A-Z]*[a-z]*[A-Z]s?\d*[A-Z]*[-\w+]\b/g
               )
               const deduplicated = [...new Set(acronyms)]
               setAcronyms(deduplicated)

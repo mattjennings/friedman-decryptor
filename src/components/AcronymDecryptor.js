@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemText, Typography } from '@material-ui/core'
+import { List, ListItem, Typography } from '@material-ui/core'
 
 import React from 'react'
 import { findAcronymMatch } from '../util'
