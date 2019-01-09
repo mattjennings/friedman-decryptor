@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { CssBaseline, createMuiTheme } from '@material-ui/core'
 import { install, ThemeProvider } from '@material-ui/styles'
-import Decryptor from './Decryptor'
+import Main from './Main'
 
 install()
 
@@ -16,7 +16,7 @@ class App extends Component {
       <>
         <CssBaseline />
         <ThemeProvider theme={theme}>
-          <Decryptor />
+          <Main />
         </ThemeProvider>
       </>
     )

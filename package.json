@@ -1,13 +1,15 @@
 {
   "name": "friedman-decryptor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.8.1",
     "@material-ui/styles": "^3.0.0-alpha.6",
+    "axios": "^0.18.0",
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
     "react-scripts": "2.1.3",
+    "react-twitter-widgets": "^1.7.1",
     "team-finder": "^2.0.0"
   },
   "scripts": {
