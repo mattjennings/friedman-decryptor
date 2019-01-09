@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     marginTop: '20px',
-    padding: 10
+    padding: 20
   },
   mattjennings: {
     color: blue[800],
@@ -30,7 +30,10 @@ function Main() {
   const classes = useStyles()
 
   const [urlState, setUrlState] = useUrlState({})
-  const [input, setInput] = useState(urlState.text || '')
+  const [input, setInput] = useState(
+    urlState.text ||
+      'https://twitter.com/FriedgeHNIC/status/1082684329921110016'
+  )
 
   const inputType = input.startsWith('https://twitter.com')
     ? 'tweet'
@@ -47,8 +50,8 @@ function Main() {
           matt jennings
         </a>
       </Typography>
-      <Grid className={classes.content} spacing={16} container justify="center">
-        <Grid item xs={12} md={4}>
+      <Grid className={classes.content} spacing={24} container justify="center">
+        <Grid item xs={12} md={6} lg={4}>
           <TextField
             fullWidth={true}
             variant="outlined"
