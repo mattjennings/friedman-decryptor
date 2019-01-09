@@ -30,7 +30,7 @@ function Main() {
   const classes = useStyles()
 
   const [urlState, setUrlState] = useUrlState({})
-  const [input, setInput] = useState(urlState.text)
+  const [input, setInput] = useState(urlState.text || '')
 
   const inputType = input.startsWith('https://twitter.com')
     ? 'tweet'
